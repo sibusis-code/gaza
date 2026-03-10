@@ -1025,6 +1025,329 @@
 
     .footer-designed a:hover { color: var(--white); }
 
+    /* ========== GALLERY ========== */
+    .gallery {
+      padding: 90px 0;
+      background: var(--white);
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .gallery-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-family: var(--font-head);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 2px solid #e0e0e0;
+      background: transparent;
+      color: var(--gray);
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.04em;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--black);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: var(--dark2);
+    }
+
+    .gallery-item.wide { grid-column: span 2; aspect-ratio: 16/9; }
+
+    .gallery-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    /* gradient placeholder if no image */
+    .gal-bg-1 { background: linear-gradient(135deg, #2a2a2a, #555); }
+    .gal-bg-2 { background: linear-gradient(135deg, #1a1a2e, #384060); }
+    .gal-bg-3 { background: linear-gradient(135deg, #2d2400, #6b5500); }
+    .gal-bg-4 { background: linear-gradient(135deg, #1a2e1a, #3a5e3a); }
+    .gal-bg-5 { background: linear-gradient(135deg, #2e1a1a, #6e3a3a); }
+    .gal-bg-6 { background: linear-gradient(135deg, #1a1a1a, #404040); }
+    .gal-bg-7 { background: linear-gradient(135deg, #1e2d1e, #2e5e2e); }
+    .gal-bg-8 { background: linear-gradient(135deg, #2e2e1a, #5e5e3a); }
+    .gal-bg-9 { background: linear-gradient(135deg, #2a1a2e, #5e3a6e); }
+
+    .gallery-item:hover .gallery-thumb { transform: scale(1.08); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-label {
+      color: var(--white);
+    }
+
+    .gallery-label .g-cat {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: var(--font-head);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-label .g-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+
+    .gallery-icon-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.8rem;
+      color: rgba(245,196,0,0.6);
+      pointer-events: none;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 26px;
+      font-size: 2rem;
+      color: var(--white);
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .lightbox-img-wrap {
+      max-width: 90vw;
+      max-height: 75vh;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--dark2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 320px;
+      min-height: 220px;
+    }
+
+    .lightbox-caption {
+      margin-top: 16px;
+      color: #ccc;
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .lightbox-caption span { color: var(--yellow); font-weight: 700; }
+
+    /* ========== WEEKLY PROJECTS ========== */
+    .weekly {
+      padding: 90px 0;
+      background: var(--light-gray);
+    }
+
+    .weekly-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .weekly-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-img {
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-img-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(245,196,0,0.55);
+    }
+
+    .project-card:hover .project-img-inner { transform: scale(1.06); }
+
+    .proj-bg-1 { background: linear-gradient(135deg, #1e1e1e, #3a3a3a); }
+    .proj-bg-2 { background: linear-gradient(135deg, #2d2400, #6b5500); }
+    .proj-bg-3 { background: linear-gradient(135deg, #1a1a2e, #384060); }
+    .proj-bg-4 { background: linear-gradient(135deg, #1e2d1e, #2e5e2e); }
+    .proj-bg-5 { background: linear-gradient(135deg, #2e1a1a, #6e3a3a); }
+    .proj-bg-6 { background: linear-gradient(135deg, #2e2a1a, #6e5e3a); }
+
+    .project-status {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .status-done { background: #22c55e; color: #fff; }
+    .status-progress { background: var(--yellow); color: var(--black); }
+    .status-new { background: #3b82f6; color: #fff; }
+
+    .project-body {
+      padding: 22px 22px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-week {
+      font-family: var(--font-head);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      margin-bottom: 8px;
+    }
+
+    .project-name {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--black);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #eee;
+      flex-wrap: wrap;
+    }
+
+    .project-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-family: var(--font-head);
+      font-weight: 600;
+    }
+
+    .project-meta-item i { color: var(--yellow-dark); font-size: 0.8rem; }
+
+    @media (max-width: 1024px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 2; }
+      .weekly-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item.wide { grid-column: span 1; aspect-ratio: 4/3; }
+      .weekly-grid { grid-template-columns: 1fr; }
+    }
+
     /* ========== BACK TO TOP ========== */
     .back-top {
       position: fixed;
@@ -1141,6 +1464,8 @@
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#weekly">Projects</a>
         <a href="#why">About Us</a>
         <a href="#process">How We Work</a>
         <a href="#contact">Contact</a>
@@ -1159,6 +1484,8 @@
     <button class="mob-close" id="mobClose" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <a href="#home" class="mob-link">Home</a>
     <a href="#services" class="mob-link">Services</a>
+    <a href="#gallery" class="mob-link">Gallery</a>
+    <a href="#weekly" class="mob-link">Projects</a>
     <a href="#why" class="mob-link">About Us</a>
     <a href="#process" class="mob-link">How We Work</a>
     <a href="#contact" class="mob-link">Contact</a>
@@ -1415,6 +1742,255 @@
     </div>
   </section>
 
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <div>
+          <div class="section-tag">Our Work</div>
+          <h2 class="section-title">Project <span>Gallery</span></h2>
+          <p class="section-sub">A showcase of completed installations and construction work across our services.</p>
+        </div>
+        <a href="https://wa.me/27650582471?text=Hi%20Gaza%20Garage%20Door%2C%20I%20would%20like%20a%20quote." class="btn btn-primary" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp"></i> Book a Project
+        </a>
+      </div>
+
+      <div class="gallery-filters">
+        <button class="filter-btn active" onclick="filterGallery(this,'all')">All</button>
+        <button class="filter-btn" onclick="filterGallery(this,'garage')">Garage Doors</button>
+        <button class="filter-btn" onclick="filterGallery(this,'gate')">Gate Motors</button>
+        <button class="filter-btn" onclick="filterGallery(this,'steel')">Steel & Aluminium</button>
+        <button class="filter-btn" onclick="filterGallery(this,'construction')">Construction</button>
+        <button class="filter-btn" onclick="filterGallery(this,'paving')">Paving & Tiling</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- Item 1 - wide -->
+        <div class="gallery-item wide gal-bg-1" data-cat="garage" onclick="openLightbox('Roller Garage Door Installation','Garage Doors','gal-bg-1')">
+          <div class="gallery-icon-center"><i class="fas fa-warehouse"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Garage Doors</div>
+              <div class="g-title">Roller Garage Door — Full Installation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item gal-bg-2" data-cat="gate" onclick="openLightbox('Sliding Gate Motor Install','Gate Motors','gal-bg-2')">
+          <div class="gallery-icon-center"><i class="fas fa-cog"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Gate Motors</div>
+              <div class="g-title">Automated Sliding Gate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item gal-bg-3" data-cat="construction" onclick="openLightbox('Kitchen Renovation','Construction','gal-bg-3')">
+          <div class="gallery-icon-center"><i class="fas fa-paint-roller"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Renovation</div>
+              <div class="g-title">Kitchen Renovation — Sandton</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item gal-bg-4" data-cat="paving" onclick="openLightbox('Driveway Paving','Paving','gal-bg-4')">
+          <div class="gallery-icon-center"><i class="fas fa-road"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Paving</div>
+              <div class="g-title">Brick Driveway Paving</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item gal-bg-5" data-cat="steel" onclick="openLightbox('Steel Burglar Guards','Steel Works','gal-bg-5')">
+          <div class="gallery-icon-center"><i class="fas fa-hammer"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Steel Works</div>
+              <div class="g-title">Custom Burglar Guards</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6 - wide -->
+        <div class="gallery-item wide gal-bg-6" data-cat="construction" onclick="openLightbox('Boundary Wall Build','Construction','gal-bg-6')">
+          <div class="gallery-icon-center"><i class="fas fa-hard-hat"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Building</div>
+              <div class="g-title">Boundary Wall Construction — Full Project</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-item gal-bg-7" data-cat="paving" onclick="openLightbox('Bathroom Tiling','Tiling','gal-bg-7')">
+          <div class="gallery-icon-center"><i class="fas fa-th"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Tiling</div>
+              <div class="g-title">Bathroom Floor & Wall Tiling</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-item gal-bg-8" data-cat="steel" onclick="openLightbox('Aluminium Frames','Aluminium Works','gal-bg-8')">
+          <div class="gallery-icon-center"><i class="fas fa-building"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Aluminium</div>
+              <div class="g-title">Custom Aluminium Window Frames</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="gallery-item gal-bg-9" data-cat="construction" onclick="openLightbox('PVC Ceiling Install','Ceiling','gal-bg-9')">
+          <div class="gallery-icon-center"><i class="fas fa-border-all"></i></div>
+          <div class="gallery-overlay">
+            <div class="gallery-label">
+              <div class="g-cat">Ceiling</div>
+              <div class="g-title">PVC Ceiling Installation</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close"><i class="fas fa-times"></i></button>
+    <div class="lightbox-img-wrap" id="lightboxImgWrap"></div>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- ===== WEEKLY PROJECTS ===== -->
+  <section class="weekly" id="weekly">
+    <div class="container">
+      <div class="weekly-header">
+        <div>
+          <div class="section-tag">Fresh Off The Tools</div>
+          <h2 class="section-title">Weekly <span>Projects</span></h2>
+          <p class="section-sub">Here's what our team has been working on this week — real projects, real results.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> Start Your Project</a>
+      </div>
+
+      <div class="weekly-grid">
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-1"><i class="fas fa-warehouse"></i></div>
+            <span class="project-status status-done">Completed</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 9 Mar 2026</div>
+            <div class="project-name">Sectional Garage Door — 3-Panel Install</div>
+            <p class="project-desc">Full supply and installation of a new 3-panel sectional garage door with automated opener and remote for a residential client.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Johannesburg</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Garage Doors</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-2"><i class="fas fa-road"></i></div>
+            <span class="project-status status-done">Completed</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 9 Mar 2026</div>
+            <div class="project-name">Interlocking Brick Driveway Paving</div>
+            <p class="project-desc">Full driveway paving with interlocking clay bricks — including ground preparation, levelling, and edge restraints.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Soweto</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Paving</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-3"><i class="fas fa-cog"></i></div>
+            <span class="project-status status-progress">In Progress</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 9 Mar 2026</div>
+            <div class="project-name">Swing Gate Motor — Dual Leaf</div>
+            <p class="project-desc">Installation of a dual-leaf swing gate motor system with keypad entry, safety beams, and battery backup for a commercial property.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Pretoria</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Gate Motors</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-4"><i class="fas fa-th"></i></div>
+            <span class="project-status status-done">Completed</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 2 Mar 2026</div>
+            <div class="project-name">Full Bathroom Tiling — Floor & Walls</div>
+            <p class="project-desc">Complete bathroom renovation with 600×600 ceramic floor tiles and matching wall tiles, waterproofing included.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Germiston</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Tiling</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-5"><i class="fas fa-hammer"></i></div>
+            <span class="project-status status-done">Completed</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 2 Mar 2026</div>
+            <div class="project-name">Steel Security Gate & Burglar Guards</div>
+            <p class="project-desc">Custom fabrication and installation of a steel security gate and burglar guards for all windows on a double-storey home.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Ekurhuleni</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Steel Works</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <div class="project-img-inner proj-bg-6"><i class="fas fa-border-all"></i></div>
+            <span class="project-status status-new">New</span>
+          </div>
+          <div class="project-body">
+            <div class="project-week"><i class="fas fa-calendar-week"></i> &nbsp;Week of 9 Mar 2026</div>
+            <div class="project-name">PVC Ceiling — Open-Plan Living Area</div>
+            <p class="project-desc">New PVC board ceiling installation for an open-plan lounge and dining area with recessed lighting provision.</p>
+            <div class="project-meta">
+              <div class="project-meta-item"><i class="fas fa-map-marker-alt"></i> Vosloorus</div>
+              <div class="project-meta-item"><i class="fas fa-tag"></i> Ceiling</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
     <div class="container">
@@ -1637,6 +2213,40 @@
 
     document.querySelectorAll('.mob-link').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Gallery filter
+    function filterGallery(btn, cat) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox
+    function openLightbox(title, cat, bg) {
+      const lb = document.getElementById('lightbox');
+      const wrap = document.getElementById('lightboxImgWrap');
+      const cap = document.getElementById('lightboxCaption');
+      wrap.className = 'lightbox-img-wrap ' + bg;
+      wrap.innerHTML = '<i class="fas fa-search-plus" style="font-size:3rem;color:rgba(245,196,0,0.5)"></i>';
+      cap.innerHTML = '<span>' + cat + '</span> — ' + title;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
     });
 
     // Active nav link on scroll
