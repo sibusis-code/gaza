@@ -2277,15 +2277,15 @@
       const message = form.message.value.trim();
 
       const text =
-        `Hi Gaza Garage Door! 👋\n\n` +
-        `*Name:* ${fname} ${lname}\n` +
-        `*Email:* ${email}\n` +
-        `*Phone:* ${phone}\n` +
-        `*Service Needed:* ${service}\n` +
-        `*Message:* ${message || 'N/A'}\n\n` +
+        `Hi Gaza Garage Door!\n\n` +
+        `Name: ${fname} ${lname}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Service Needed: ${service}\n` +
+        `Message: ${message || 'N/A'}\n\n` +
         `Please get back to me with a quote. Thank you!`;
 
-      const waUrl = `https://wa.me/27650582471?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/27738037339?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank', 'noopener,noreferrer');
 
       const btn = form.querySelector('.form-submit');
